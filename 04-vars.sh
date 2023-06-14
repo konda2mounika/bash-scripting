@@ -10,4 +10,4 @@ b=abc
 
 echo value of ais :$a
 echo ${a}
-echi "${b}
+echi "${b}"
