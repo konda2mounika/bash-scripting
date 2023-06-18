@@ -1,6 +1,6 @@
 #!/bin/bash
 
-a=10
+a=100
 # a is 10 and is integer
 b=abc
 # abc is a string
@@ -11,3 +11,4 @@ b=abc
 echo value of ais :$a
 echo ${a}
 echo "${b}"
+
