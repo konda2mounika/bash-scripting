@@ -12,3 +12,4 @@ echo value of ais :$a
 echo ${a}
 echo "${b}"
 
+echo value of d is  : $d
