@@ -23,7 +23,7 @@ echo value of d is : $d
 # sh scriptname.sh 100 200 300 
 # sh scriptname.sh  $1  $2  $3
 
-echo -e "Printing the vairables that we have passed in the script : \e[45:32m $# \e[0m"
+echo -e "Printing the vairables that we have passed in the script : \e[42;33m $# \e[0m"
 echo -e "Printing the vairables that we have passed in the script : \e[45;32m $@ \e[0m "
 echo -e "Printing the number vairables that we have passed in the scrip : \e[45;32m $# \e[0m"
 echo -e "Prining the PID of the script that we are running : \e[45;32m $$ \e[0m"
