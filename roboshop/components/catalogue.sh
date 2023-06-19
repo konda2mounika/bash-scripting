@@ -15,7 +15,7 @@ yum install nodejs -y  >> /tmp/${COMPONENT}.log
 stat $?
 
 echo -n "Adding $FUSER user: "
-id ${FUSER} || useradd ${roboshop}  # Creates users only in case if the user account doesn't exist
+id ${FUSER} >> /tmp/${COMPONENT}.log || useradd ${roboshop}  # Creates users only in case if the user account doesn't exist
 stat $?
 
 echo -n " Downloading $COMPONENT: "
@@ -27,7 +27,7 @@ rm -rf /home/$FUSER/${COMPONENT} >> /tmp/${COMPONENT}.log
 stat $
 
 echo -n "Extracting $COMPONENT content: "
-cd /home/$FUSER/  
+cd /home/$FUSER/   >> /tmp/${COMPONENT}.log
 unzip -o  /tmp/{COMPONENT}.zip>> /tmp/${COMPONENT}.log && mv ${COMPONENT}-main ${COMPONENT} >> /tmp/${COMPONENT}.log
 stat $
 
@@ -38,3 +38,13 @@ stat $
 echo -n "Installing  $COMPONET Dependencies: "
 cd $COMPONENT  && npm install  &>> /tmp/${COMPONENT}.log
 stat $
+
+echo -n "Configure the Systemd file: "
+sed -n -e 's/MONGO_DNSNAME/mongo.roboshop.internal' /home/${FUSER}/${COMPONENT}/systemd.service
+mv /home/${FUSER}/${COMPONENT}/systemd.service /etc/systemd/system/catalogue.service
+stat $
+
+echo -n "Starting the service"
+systemctl daemon-reload  >> /tmp/${COMPONENT}.log
+systemctl start ${COMPONENT}    >> /tmp/${COMPONENT}.log
+systemctl enable ${COMPONENT}   >> /tmp/${COMPONENT}.log
