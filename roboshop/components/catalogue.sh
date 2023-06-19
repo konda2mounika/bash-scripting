@@ -11,7 +11,7 @@ curl -sL https://rpm.nodesource.com/setup_16.x |  bash
 stat $?
 
 echo -n "Installing nodejs: "
-yum install nodejs -y  >> /tmp/${COMPONENT}.log
+yum install nodejs -y   >> /tmp/${COMPONENT}.log
 stat $?
 
 echo -n "Adding $FUSER user: "
@@ -28,11 +28,11 @@ stat $
 
 echo -n "Extracting $COMPONENT content: "
 cd /home/$FUSER/   >> /tmp/${COMPONENT}.log
-unzip -o  /tmp/{COMPONENT}.zip>> /tmp/${COMPONENT}.log && mv ${COMPONENT}-main ${COMPONENT} >> /tmp/${COMPONENT}.log
+unzip -o  /tmp/${COMPONENT}.zip>> /tmp/${COMPONENT}.log && mv ${COMPONENT}-main ${COMPONENT} >> /tmp/${COMPONENT}.log
 stat $
 
-echo -n "Changing the ownershipto $FUSER: "
-chown -R $FUSER:$FUSER $COMPONENT/  >> /tmp/${COMPONENT}.log
+echo -n "Changing the ownership to $FUSER: "
+chown -R $FUSER:$FUSER $COMPONENT/ 
 stat $
 
 echo -n "Installing  $COMPONET Dependencies: "
