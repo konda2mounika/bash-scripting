@@ -22,4 +22,4 @@ case $ACTION in
         echo "Restarting XYZ Service"
         ;;
         *)
-        
+esac
