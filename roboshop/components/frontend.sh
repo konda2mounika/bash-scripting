@@ -12,7 +12,7 @@ echo -n "starting Nginx: "
 systemctl start nginx
 stat $?
 
-echo -n "Downloading the Nginx: "
+echo -n -e "Downloading the Nginx: "
 curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
 stat $? 
 
