@@ -8,7 +8,7 @@ yum install nginx -y    >> /tmp/frontend.log
 
 systemctl enable nginx
 
-echo -n "starting Nginx: "
+echo -e -n "starting Nginx: "
 systemctl start nginx
 stat $?
 
@@ -24,7 +24,7 @@ mv static/* .
 rm -rf frontend-main README.md
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 
-echo -n "Starting Nginx: "
+echo -e -n "Starting Nginx: "
 systemctl restart nginx
 stat $? 
 
