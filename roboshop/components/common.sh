@@ -7,7 +7,7 @@ fi
 
 #Declaring the stat function
 stat() {
-    if [ $? -eq 0 ] ; then
+    if [ $1 -eq 0 ] ; then
         echo -e -n "\e[42;33m Success \e[0m"
     else
         echo -e -n "\e[42;33m Failure.Look for the logs \e[0m"
