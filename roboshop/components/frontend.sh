@@ -5,12 +5,14 @@ source components/common.sh
 
 echo -n "installing Nginx: "
 yum install nginx -y    >> /tmp/frontend.log
+
 systemctl enable nginx
-echo "starting Nginx: "
+
+echo -n "starting Nginx: "
 systemctl start nginx
 stat $?
 
-echo "Downloading the Nginx: "
+echo -n "Downloading the Nginx: "
 curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
 stat $? 
 
@@ -23,7 +25,7 @@ rm -rf frontend-main README.md
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 
 echo -n "Starting Nginx: "
-system restart nginx
+systemctl restart nginx
 stat $? 
 
 # source is a command to import a file and run it locally
