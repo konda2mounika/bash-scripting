@@ -7,7 +7,7 @@ COMPONENT=mongodb
 FUSER=roboshop
 
 echo -n " Configure Yum Remos for nodejs: "
-curl -sL https://rpm.nodesource.com/setup_16.x |  bash 
+curl -sL https://rpm.nodesource.com/setup_16.x |  bash   >> /tmp/${COMPONENT}.log
 stat $?
 
 echo -n "Installing nodejs: "
@@ -15,7 +15,7 @@ yum install nodejs -y  >> /tmp/${COMPONENT}.log
 stat $?
 
 echo -n "Adding $FUSER user: "
-id ${FUSER} >> /tmp/${COMPONENT}.log || useradd ${roboshop}  # Creates users only in case if the user account doesn't exist
+id ${FUSER} >> /tmp/${COMPONENT}.log || useradd ${FUSER}  # Creates users only in case if the user account doesn't exist
 stat $?
 
 echo -n " Downloading $COMPONENT: "
@@ -48,3 +48,4 @@ echo -n "Starting the service"
 systemctl daemon-reload  >> /tmp/${COMPONENT}.log
 systemctl start ${COMPONENT}    >> /tmp/${COMPONENT}.log
 systemctl enable ${COMPONENT}   >> /tmp/${COMPONENT}.log
+stat $
