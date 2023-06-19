@@ -19,4 +19,4 @@ echo value of d is : $d
 echo "Good morning , today date is $DATE_COMMAND"
 
 LOGGEDIN_USERS=$(who | wc -l)
-echo -e "\e[44m;33m umber of logged in users are :$LOGGEDIN_USERS \e[0m"
+echo -e "\e[44;33m umber of logged in users are :$LOGGEDIN_USERS \e[0m"
