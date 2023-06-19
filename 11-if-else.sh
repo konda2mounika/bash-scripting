@@ -10,17 +10,22 @@ ACTION=$1
 # fi
 
 #Demo on Else if
-if [ "$ACTION" = "start" ] ; then
-    echo " Starting XYZ Service "
-        exit 1
-    elif [ "$ACTION" = "stop" ] ; then
-        echo " Stopping XYZ Service "
-        exit 2
-    elif [ "$ACTION" = "restart" ] ; then
-        echo " Restarting XYZ Service "
-        exit 3
-    else
-    echo -e "\e[42;33m Valid options are start or stop or restart only \e[0m"
-        exit 4
+# if [ "$ACTION" = "start" ] ; then
+#     echo " Starting XYZ Service "
+#         exit 1
+#     elif [ "$ACTION" = "stop" ] ; then
+#         echo " Stopping XYZ Service "
+#         exit 2
+#     elif [ "$ACTION" = "restart" ] ; then
+#         echo " Restarting XYZ Service "
+#         exit 3
+#     else
+#     echo -e "\e[42;33m Valid options are start or stop or restart only \e[0m"
+#         exit 4
+# fi
+
+#-z will be true , if the supplied  value is null
+
+if [ -z $ACTION ] ; then
+    echo "Argument is needed"
 fi
-     
