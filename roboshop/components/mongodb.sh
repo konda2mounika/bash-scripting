@@ -11,8 +11,6 @@ stat $?
 
 echo -n "installing $COMPONENT: "
 yum install -y mongodb-org   >> /tmp/${COMPONENT}.log
-systemctl enable mongod
-systemctl start mongod
 stat $?
 
 echo -n "Updating the $COMPONENT Config: "
@@ -20,7 +18,23 @@ sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
 systemctl restart mongodb
 stat $?
 
-echo -n "start the ${COMPONENT} service: "
+echo -n "start the $COMPONENT service: "
 systemctl enable mongdb  >> /tmp/${COMPONENT}.log
 systemctl start mongodb
 stat $?
+
+echo -n "Downloading the Nginx: "
+curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/${COMPONENT}/archive/main.zip"
+stat $? 
+
+echo -n "Extracting the $COMPONENT schema: "
+cd /tmp && unzip mongodb.zip 
+stat $? 
+
+echo -n "Injucting the $COMPONENT schema: "
+cd mongodb-main
+mongo <catalogue.js   >> /tmp/${COMPONENT}.log
+mongo < users.js      >> /tmp/${COMPONENT}.log
+stat $? 
+
+echo "********************_________$COMPONENT Configuration Completed______________*****************"
