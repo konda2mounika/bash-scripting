@@ -7,7 +7,7 @@ COMPONENT=mongodb
 FUSER=roboshop
 
 echo -n " Configure Yum Remos for nodejs: "
-curl -sL https://rpm.nodesource.com/setup_16.x |  bash   >> /tmp/${COMPONENT}.log
+curl -sL https://rpm.nodesource.com/setup_16.x |  bash 
 stat $?
 
 echo -n "Installing nodejs: "
@@ -32,7 +32,7 @@ unzip -o  /tmp/{COMPONENT}.zip>> /tmp/${COMPONENT}.log && mv ${COMPONENT}-main $
 stat $
 
 echo -n "Changing the ownershipto $FUSER: "
-chown -R $FUSER:$FUSER $COMPONENT/
+chown -R $FUSER:$FUSER $COMPONENT/  >> /tmp/${COMPONENT}.log
 stat $
 
 echo -n "Installing  $COMPONET Dependencies: "
