@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo -e "script name that you're running is : \e[44;32m $0 \e[0m"
 a=10 
 b=$1      # $1 first argement passed to the script 
 c=$2 
