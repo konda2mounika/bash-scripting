@@ -8,6 +8,6 @@ d=$3
 echo -e "\e[44;33m value of a is : $a \e[0m " 
 echo -e "\e[44;33m value of a is : $b \e[0m " 
 echo -e "\e[44;33m value of a is : $c \e[0m " 
-echo -e "\e[44;33m value of a is : $d \e[0m " 
+echo -e "\e[45;35m value of a is : $d \e[0m " 
 # sh scriptname.sh 100 200 300 
 # sh scriptname.sh  $1  $2  $3
