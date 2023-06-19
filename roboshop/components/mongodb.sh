@@ -37,4 +37,4 @@ mongo <catalogue.js   >> /tmp/${COMPONENT}.log
 mongo < users.js      >> /tmp/${COMPONENT}.log
 stat $? 
 
-echo "********************_________$COMPONENT Configuration Completed______________*****************"
+echo -e "\n \n********************_________$COMPONENT Configuration Completed______________*****************"
