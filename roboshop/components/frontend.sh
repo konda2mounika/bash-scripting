@@ -8,7 +8,7 @@ yum install nginx -y    >> /tmp/frontend.log
 
 systemctl enable nginx
 
-echo -e "starting Nginx: "
+echo -n "starting Nginx: "
 systemctl start nginx
 stat $?
 
