@@ -1,5 +1,6 @@
 #!/bin/bash
 
+DATE_COMMAND=$(date +%F)
 a=100
 # a is 10 and is integer
 b=abc
@@ -13,3 +14,5 @@ echo ${a}
 echo "${b}"
 
 echo value of d is : $d
+
+echo "Good morning , today date is $DATA_COMMAND"
