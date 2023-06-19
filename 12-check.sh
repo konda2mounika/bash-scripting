@@ -7,5 +7,5 @@ if [ $ID -eq 0 ] ; then
 
 else
     echo -e "\e[42;33m Try excuting the script with sudo or a root user \e[0m"
-
+        exit 1
 fi
