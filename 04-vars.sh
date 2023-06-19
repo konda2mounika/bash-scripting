@@ -15,4 +15,5 @@ echo "${b}"
 
 echo value of d is : $d
 
-echo "Good morning , today date is $DATA_COMMAND"
+
+echo "Good morning , today date is $DATE_COMMAND"
