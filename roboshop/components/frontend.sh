@@ -12,7 +12,7 @@ echo -n "starting Nginx: "
 systemctl start nginx
 stat $?
 
-echo -e "Downloading the Nginx: "
+echo -n "Downloading the Nginx: "
 curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
 stat $? 
 
@@ -24,7 +24,7 @@ mv static/* .
 rm -rf frontend-main README.md
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 
-echo -e "Starting Nginx: "
+echo -n "Starting Nginx: "
 systemctl restart nginx
 stat $? 
 
