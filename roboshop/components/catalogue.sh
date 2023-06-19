@@ -7,7 +7,7 @@ COMPONENT=mongodb
 FUSER=roboshop
 
 echo -n " Configure Yum Remos for nodejs: "
-curl -sL https://rpm.nodesource.com/setup_16.x |  bash 
+curl -sL https://rpm.nodesource.com/setup_16.x  
 stat $?
 
 echo -n "Installing nodejs: "
