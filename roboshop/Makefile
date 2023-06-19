@@ -4,6 +4,8 @@ mongodb:
 	 bash components/mongodb.sh
 catalogue:
 	 bash components/catalogue.sh
+redis:
+	 bash components/redis.sh
 cart:
 	 bash components/cart.sh
 	
