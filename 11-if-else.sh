@@ -12,13 +12,13 @@ ACTION=$1
 #Demo on Else if
 if [ "$ACTION" = "start" ] ; then
     echo " Starting XYZ Service "
-
+        exit1
     elif [ "$ACTION" = "stop" ] ; then
         echo " Stopping XYZ Service "
-
+        exit2
     elif [ "$ACTION" = "restart" ] ; then
         echo " Restarting XYZ Service "
-
+        exit3
     else
     echo -e "\e[42;33m Valid options are start or stop or restart only \e[0m"
 
