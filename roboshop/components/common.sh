@@ -1,20 +1,20 @@
-# validatiing whether the excuting user is root or not
+# validating whether the executing user is root or not
 ID=$(id -u)
-if [ $ID -ne 0 ] ; then
-    echo -e "\e[42;33m Try excuting the script with sudo or a root user \e[0m"
-        exit 1
-fi
+if [ $ID -ne 0 ]; then 
+    echo -e "\e[31m Try executing the script with sudo or a root user \e[0m"
+    exit 1
+fi 
 
-#Declaring the stat function
+# Declaring the stat function
 stat() {
-    if [ $1 -eq 0 ] ; then
-        echo -e "\e[42;33m Success \e[0m"
+    if [ $1 -eq 0 ] ; then 
+        echo -e "\e[32m Success \e[0m" 
     else
-        echo -e "\e[42;33m Failure.Look for the logs \e[0m"
-    fi
+        echo -e "\e[31m Failure. Look for the logs \e[0m"  
+    fi 
 }
 
-  FUSER=roboshop 
+FUSER=roboshop 
 LOGFILE=/tmp/robot.log 
 
 USER_SETUP() {
@@ -40,7 +40,7 @@ DOWNLOAD_AND_EXTRACT() {
     echo -n "Changing the ownership to ${FUSER}:"
     chown -R $FUSER:$FUSER $COMPONENT/
     stat $?
-}   
+} 
 
 CONFIG_SVC() {
     echo -n "Configuring the Systemd file: "
@@ -79,4 +79,51 @@ NODEJS() {
 
     echo -e "\n ************ $Component Installation Completed ******************** \n"
 
+}
+
+
+MAVEN() {
+    echo -n "Installing Maven: "
+    yum install maven -y &>> LOGFILE
+    stat $? 
+
+    USER_SETUP
+
+    DOWNLOAD_AND_EXTRACT
+    
+    echo -n "Generating the artifact :"
+    cd /home/${FUSER}/${COMPONENT}
+    mvn clean package   &>> LOGFILE
+    mv target/${COMPONENT}-1.0.jar ${COMPONENT}.jar
+    stat $? 
+    
+    CONFIG_SVC
+
+    echo -e "\n ************ $Component Installation Completed ******************** \n"
+
+}
+
+
+
+PYTHON() {
+    echo -n "Installing Pyhton:"
+    yum install python36 gcc python3-devel -y &>> ${LOGFILE} 
+    stat $? 
+
+    USER_SETUP
+
+    DOWNLOAD_AND_EXTRACT
+
+    cd /home/${FUSER}/${COMPONENT}/
+    pip3 install -r requirements.txt   &>> ${LOGFILE} 
+    stat $? 
+
+    USER_ID=$(id -u roboshop)
+    GROUP_ID=$(id -g roboshop)
+
+    echo -n "Updating the $COMPONENT.ini file"
+    sed -i -e "/^uid/ c uid=${USER_ID}" -e "/^gid/ c gid=${GROUP_ID}" payment.ini
+    stat $? 
+
+    CONFIG_SVC
 }

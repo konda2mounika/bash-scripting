@@ -23,4 +23,4 @@ echo -n "Staring $COMPONENT: "
 systemctl daemon-reload &>> /tmp/${COMPONENT}.log
 systemctl enable redis &>> /tmp/${COMPONENT}.log
 systemctl restart redis &>> /tmp/${COMPONENT}.log
-stat $?
+stat $? 
