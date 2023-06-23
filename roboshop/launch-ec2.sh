@@ -9,8 +9,7 @@ if [ -z  "$1" ] ; then
 fi 
 
 COMPONENT=$1
-ENV=$2
-ZONEID="Z04602961I29SHWLCRCU3"
+
 # AMI_ID=$(aws ec2 describe-images  --filters "Name=name,Values=DevOps-LabImage-CentOS7"  | jq '.Images[].ImageId' | sed -e 's/"//g')
 AMI_ID="ami-0a3c288ee30851908"
 SGID="sg-000671b0e1fb3d069"
@@ -26,13 +25,3 @@ create-server() {
     sed -e "s/PRIVATEIP/${PRIVATE_IP}/" -e "s/COMPONENT/${COMPONENT}-${ENV}/" r53.json  >/tmp/record.json 
     aws route53 change-resource-record-sets --hosted-zone-id ${ZONEID} --change-batch file:///tmp/record.json | jq 
 }
-
-if [ "$1" == "all" ] ; then 
-    for component in catalogue cart shipping mongodb payment rabbitmq redis mysql user frontend; do 
-        COMPONENT=$component
-        # calling function
-        create-server
-     done
-else 
-     create-server
-fi 
