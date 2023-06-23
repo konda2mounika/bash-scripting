@@ -1,8 +1,10 @@
 #!/bin/bash
 
-This is comment
+# This is a comment 
 
-echo "Hello ,Welcome to the training"
+echo "Hello, welcome to the training"
 
-echo "Hai"
-echo "Hello World"
+echo hai 
+echo hello
+
+echo Hai 

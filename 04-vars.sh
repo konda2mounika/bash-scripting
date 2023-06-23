@@ -1,22 +1,28 @@
-#!/bin/bash
+#!/bin/bash  
+
+a=10 
+# a is 10 and is integer 
+
+b=abc 
+# abc is a string  
+
+d=150
 
 DATE_COMMAND=$(date +%F)
-a=100
-# a is 10 and is integer
-b=abc
-# abc is a string
+LOGGEDIN_USERS=$(who | wc -l)
 
+#### No Datatypes in bash scriptng. Everything is a string by default.
 
-#### No Datatypes in bash scripting.Everything is a string by defaults
-
-echo value of ais :$a
+echo value of a is : $a 
 echo ${a}
 echo "${b}"
 
-echo value of d is : $d
+echo value of d is : $d 
 
+# rm -rf  /data/${DIR}  
+# rm -rf /data/
 
-echo "Good morning , today date is $DATE_COMMAND"
-
-LOGGEDIN_USERS=$(who | wc -l)
-echo -e "\e[44;33m umber of logged in users are :$LOGGEDIN_USERS \e[0m"
+DATE=2022-09-05
+echo "Good Morning, Todays date is $DATE_COMMAND"
+# This is how we can fetch the system data
+echo "Number of logged in users are: $LOGGEDIN_USERS"

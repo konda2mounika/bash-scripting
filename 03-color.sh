@@ -1,7 +1,9 @@
- #!/bin/bash
+#!/bin/bash 
 
- #syntax : echo -e "\e[color code your text \e[0m"
+#Syntax : echo -e  "\e[ColorCodem Your Tex \e[0m"
 
- echo -e "\e[37m konda is good man  \e[0m"
- echo -e "\e[43;37m konda is good man  \e[0m"
- echo -e "\e[44;37m konda wife is so humble  \e[0m"
+# Syntax is 
+# echo -e "\e[32m TextOfYourChoice  \e[0m"
+
+echo -e "\e[33m DevOps has a very great future \e[0m"
+echo -e "\e[43;37m DevOps has a very great future \e[0m"

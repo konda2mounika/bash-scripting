@@ -1,26 +1,27 @@
-#!/bin/bash
+#!/bin/bash 
 
-# case $var in
+
+# case $var  in 
 #     cond1)
-#         command 1 ;;
+#         command1 ;; 
 #     cond2)
-#         command 2 ;;
+#         command2 ;;
 #     *)
-#         xyz ;;;
-#     esac
+#         exz ;;;
+# esac  
 
 ACTION=$1
 
-case $ACTION in
+case $ACTION in 
     start)
-        echo "starting XYZ Service"
+        echo "Starting XYZ Service" 
+        ;; 
+    stop)
+        echo "Stopping XYZ Service"
         ;;
-        stop)
-        echo "stoping XYZ Service"
-        ;;
-        restart)
+    restart)
         echo "Restarting XYZ Service"
         ;;
-        *)
-        echo -e "\e[42;33m Valid options are start or stop or restart only \e[0m"
-esac
+    *)
+        echo -e "\e[32m Valid options are start or stop or restart only \e[0m"
+esac 

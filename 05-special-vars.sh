@@ -10,7 +10,7 @@
 #  $$          : Process ID of the script that you're running 
 #  $?          : Gives you the exit code of the previous command  
 
-echo -e "script name that you're running is : \e[45;32m $0 \e[0m"
+echo -e "script name that you're running is : \e[32m $0 \e[0m"
 
 a=10 
 b=$1      # $1 first argement passed to the script 
@@ -23,7 +23,7 @@ echo value of d is : $d
 # sh scriptname.sh 100 200 300 
 # sh scriptname.sh  $1  $2  $3
 
-echo -e "Printing the vairables that we have passed in the script : \e[42;33m $# \e[0m"
-echo -e "Printing the vairables that we have passed in the script : \e[42;33m $@ \e[0m "
-echo -e "Printing the number vairables that we have passed in the scrip : \e[42;33m $# \e[0m"
-echo -e "Prining the PID of the script that we are running : \e[42;33m $$ \e[0m"
+echo "Printing the vairables that we have passed in the script $*"
+echo "Printing the vairables that we have passed in the script $@"
+echo "Printing the number vairables that we have passed in the scrip $#"
+echo "Prining the PID of the script that we are running $$"
