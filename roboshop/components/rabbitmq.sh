@@ -30,4 +30,3 @@ rabbitmqctl set_user_tags roboshop administrator &>> ${LOGFILE}  &&  rabbitmqctl
 stat $? 
 
 echo -e "\n ************ $Component Installation Completed ******************** \n"
-
