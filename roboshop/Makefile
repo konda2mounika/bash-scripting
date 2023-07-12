@@ -27,3 +27,6 @@ rabbitmq:
 
 payment:
 	bash components/payment.sh
+
+fe:
+	bash components/fe.sh
