@@ -13,7 +13,7 @@ systemctl start nginx
 stat $?
 
 echo -n "Downloading the Code"
-curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
+curl -s -L -o /tmp/frontend.zip "https://github.com/konda2mounika/frontend/archive/main.zip"
 stat $?
 
 cd /usr/share/nginx/html

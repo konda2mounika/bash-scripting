@@ -5,7 +5,7 @@ source components/common.sh
 COMPONENT=mongodb
 
 echo -n "Configuring the MongoDB repo:"
-curl -s -o /etc/yum.repos.d/${COMPONENT}.repo https://raw.githubusercontent.com/stans-robot-project/${COMPONENT}/main/mongo.repo
+curl -s -o /etc/yum.repos.d/${COMPONENT}.repo https://raw.githubusercontent.com/s/${COMPONENT}/main/mongo.repo
 stat $? 
 
 echo -n "Installing ${COMPONENT}:"
@@ -22,7 +22,7 @@ systemctl start mongod
 stat $? 
 
 echo -n "Downloading the schema:"
-curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/${COMPONENT}/archive/main.zip"
+curl -s -L -o /tmp/mongodb.zip "https://github.com/konda2mounika/${COMPONENT}/archive/main.zip"
 stat $?
 
 echo -n "Extracting the $COMPONENT Schema:"

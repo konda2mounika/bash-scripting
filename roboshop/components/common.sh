@@ -25,7 +25,7 @@ USER_SETUP() {
 
 DOWNLOAD_AND_EXTRACT() {
     echo -n "Downloading ${COMPONENT} :"
-    curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/stans-robot-project/${COMPONENT}/archive/main.zip" >> /tmp/${COMPONENT}.log 
+    curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/konda2mounika/${COMPONENT}/archive/main.zip" >> /tmp/${COMPONENT}.log 
     stat $? 
 
     echo -n "Cleanup of Old ${COMPONENT} content:"
