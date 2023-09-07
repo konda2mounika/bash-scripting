@@ -7,4 +7,4 @@ echo "Hello, welcome to the training"
 echo hai 
 echo hello
 
-echo Hai 
+echo Hai all
